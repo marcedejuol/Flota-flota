@@ -6,7 +6,7 @@ import { formatCurrency, formatDateOnly, formatDate, estadoViajeColor, estadoVia
 import { Viaje } from '@/types'
 import { FileText, X, CheckSquare, Square, AlertCircle, Printer, ChevronDown } from 'lucide-react'
 
-const IVA = 0.19
+const IVA = 0.10
 
 function InvoicePreviewModal({
   clienteId,
@@ -42,17 +42,17 @@ function InvoicePreviewModal({
           {/* Company + client header */}
           <div className="flex justify-between">
             <div>
-              <div className="font-bold text-blue-700 text-xl">FlotaFlota</div>
+              <div className="font-bold text-blue-700 text-xl">FlotaFast</div>
               <div className="text-xs text-gray-500 mt-1">Empresa de Logística y Transporte</div>
-              <div className="text-xs text-gray-500">RUT: 76.000.000-0</div>
-              <div className="text-xs text-gray-500">Av. Industrial 1234, Santiago</div>
+              <div className="text-xs text-gray-500">RUC: 80.000.000-0</div>
+              <div className="text-xs text-gray-500">Av. Mcal. López 1234, Asunción</div>
             </div>
             <div className="text-right">
               <div className="bg-blue-600 text-white px-4 py-2 rounded-lg inline-block">
                 <div className="text-xs font-medium opacity-80">FACTURA N°</div>
                 <div className="font-bold text-lg">F-{now.getFullYear()}-{String(state.facturaCounter).padStart(4, '0')}</div>
               </div>
-              <div className="text-xs text-gray-500 mt-2">Fecha emisión: {now.toLocaleDateString('es-CL')}</div>
+              <div className="text-xs text-gray-500 mt-2">Fecha emisión: {now.toLocaleDateString('es-PY')}</div>
             </div>
           </div>
 
@@ -60,7 +60,7 @@ function InvoicePreviewModal({
           <div className="bg-gray-50 rounded-lg p-4">
             <div className="text-xs text-gray-500 font-medium uppercase mb-2">Cliente</div>
             <div className="font-semibold text-gray-900">{cliente.nombre}</div>
-            <div className="text-sm text-gray-600 mt-1">RUT: {cliente.rut}</div>
+            <div className="text-sm text-gray-600 mt-1">RUC: {cliente.rut}</div>
             <div className="text-sm text-gray-600">{cliente.email}</div>
             <div className="text-sm text-gray-600">{cliente.direccion}</div>
           </div>
@@ -106,7 +106,7 @@ function InvoicePreviewModal({
                 <span className="font-medium">{formatCurrency(subtotal)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-gray-500">IVA (19%)</span>
+                <span className="text-gray-500">IVA (10%)</span>
                 <span className="font-medium">{formatCurrency(impuesto)}</span>
               </div>
               <div className="flex justify-between font-bold text-base border-t border-gray-200 pt-2">

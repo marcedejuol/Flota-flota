@@ -27,10 +27,9 @@ export function formatDateOnly(dateString: string | null): string {
 }
 
 export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('es-CL', {
-    style: 'currency',
-    currency: 'CLP',
+  return '₲\u00A0' + new Intl.NumberFormat('es-PY', {
     minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(amount)
 }
 
@@ -97,13 +96,13 @@ export function exportToCSV(data: Record<string, unknown>[], filename: string): 
 
 export const TIPOS_CARGA = [
   'Carga general',
+  'Soja y cereales',
   'Alimentos refrigerados',
   'Alimentos secos',
   'Materiales de construcción',
-  'Materiales peligrosos',
-  'Maquinaria',
   'Bebidas',
-  'Farmacéuticos',
-  'Electrónica',
-  'Textiles',
+  'Carne y derivados',
+  'Maquinaria agrícola',
+  'Productos farmacéuticos',
+  'Madera y muebles',
 ]
